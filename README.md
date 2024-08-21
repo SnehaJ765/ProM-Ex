@@ -5,7 +5,7 @@ ProM-Ex is an advanced tool designed to detect and explain anomalies in process 
  1) Timestamp Anomaly Detection: Utilizes Isolation Forest to detect anomalies in event logs.
  2) Activity n-Grams Analysis: Extracts n-gram features from activity sequences for detailed anomaly detection.
  3) SHAP Analysis: Provides interpretability by showing feature importance and their impacts on model decisions.
- 4)LLM-based Explanation: Generates human-readable explanations for detected anomalies using Google Gemini-Pro.
+ 4) LLM-based Explanation: Generates human-readable explanations for detected anomalies using Google Gemini-Pro.
 ## Installation
 ### Clone the repository:
 
