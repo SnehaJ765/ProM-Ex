@@ -81,16 +81,6 @@ def clear_chat_history():
         {"role": "assistant", "content": "Upload some CSVs and ask me a question"}]
 
 
-def user_input(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=os.getenv("GOOGLE_API_KEY"))
-    new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
-    docs = new_db.similarity_search(user_question, top_k=10)
-
-    chain = get_conversational_chain()
-    response = chain({"input_documents": docs, "question": user_question}, return_only_outputs=True)
-    return response
-
-
 def get_timestamps_from_csv(csv_file):
     df = pd.read_csv(csv_file)
     df.columns = df.columns.str.strip()
