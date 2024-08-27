@@ -1,0 +1,9 @@
+pandas
+streamlit
+scikit-learn
+joblib
+numpy
+shap
+langchain-google-genai
+google-generativeai
+python-dotenv
