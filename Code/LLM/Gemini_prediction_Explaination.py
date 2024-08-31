@@ -76,9 +76,9 @@ def get_conversational_chain():
     return chain
 
 
-def clear_chat_history():
+def clear_Page():
     st.session_state.messages = [
-        {"role": "assistant", "content": "Upload some CSVs and ask me a question"}]
+        {"role": "assistant", "content": "Upload a CSV file, and I will detect and explain their anomalies."}]
 
 
 def get_timestamps_from_csv(csv_file):
@@ -184,7 +184,7 @@ def main():
             else:
                 st.write("No timestamp anomalies detected in the uploaded event log.")
 
-    st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+    st.sidebar.button('Clear Page', on_click=clear_Page)
 if __name__ == "__main__":
     main()
 
