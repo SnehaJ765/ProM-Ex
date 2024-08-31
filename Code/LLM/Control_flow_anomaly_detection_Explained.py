@@ -18,7 +18,7 @@ import os
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-def clear_chat_history():
+def clear_Page():
     st.session_state.messages = [
         {"role": "assistant", "content": "Upload a CSV file, and I will detect and explain their anomalies."}]
 
@@ -38,7 +38,7 @@ def main():
     st.write("Welcome! ")
 
 
-    st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+    st.sidebar.button('Clear Page', on_click=clear_Page)
 
     if "messages" not in st.session_state.keys():
         st.session_state.messages = [
