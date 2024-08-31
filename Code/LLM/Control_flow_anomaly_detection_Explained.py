@@ -20,7 +20,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 def clear_chat_history():
     st.session_state.messages = [
-        {"role": "assistant", "content": "Upload some CSVs and ask me a question"}]
+        {"role": "assistant", "content": "Upload a CSV file, and I will detect and explain their anomalies."}]
 
 def main():
     st.set_page_config(
