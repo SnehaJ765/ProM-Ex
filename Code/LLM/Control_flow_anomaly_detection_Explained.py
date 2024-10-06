@@ -18,9 +18,11 @@ import os
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+
 def clear_Page():
     st.session_state.messages = [
         {"role": "assistant", "content": "Upload a CSV file, and I will detect and explain their anomalies."}]
+
 
 def main():
     st.set_page_config(
@@ -28,15 +30,13 @@ def main():
         page_icon="🍀"
     )
 
-    
     with st.sidebar:
         st.title("Menu:")
         uploaded_file = st.file_uploader("Upload your CSV Files and Click on the Submit & Process Button", type="csv")
         submit_button = st.button("Submit & Process")
-    
+
     st.title("ProM-Ex 🍀")
     st.write("Welcome! ")
-
 
     st.sidebar.button('Clear Page', on_click=clear_Page)
 
@@ -98,7 +98,6 @@ def main():
         iso_f1 = f1_score(true_labels, iso_predictions, pos_label=1)
         iso_errors = len(iso_anomalies)
 
-
         st.write("Detected Anomalies:")
         st.dataframe(iso_anomalies)
 
@@ -117,6 +116,7 @@ def main():
             top_ngram_index = np.argmax(shap_values_mean)
             top_ngram_name = str(unique_ngrams[top_ngram_index])  # Convert tuple to string
 
+            
 
         st.subheader("LLM-based SHAP Explanation")
         shap_values_abs = np.abs(shap_values).mean(axis=0)
@@ -137,11 +137,10 @@ def generate_shap_explanation(top_features):
     Returns:
     str: A text explanation of feature importances.
     """
-    
+
     feature_names = ', '.join([str(f[0]) for f in top_features])
     feature_importances = ', '.join([f"{f[0]}: {f[1]:.2f}" for f in top_features])
 
-    
     prompt_template = """
     Based on the detected features and their importance scores in the dataset, please perform a root cause analysis considering the following:
     Detected n-gram features and their importance scores:
@@ -161,14 +160,12 @@ def generate_shap_explanation(top_features):
     Answer:
     """
 
-    
     context = "The context information about how these features relate to the anomalies detected in the process mining."
     prompt = prompt_template.format(
         feature_importances=feature_importances,
         context=context
     )
 
-    
     model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.2, google_api_key=os.getenv("GOOGLE_API_KEY"))
     response = model.predict(prompt)
 
