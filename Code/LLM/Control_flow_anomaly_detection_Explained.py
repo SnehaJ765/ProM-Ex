@@ -117,12 +117,6 @@ def main():
             top_ngram_index = np.argmax(shap_values_mean)
             top_ngram_name = str(unique_ngrams[top_ngram_index])  # Convert tuple to string
 
-            st.write(f"Dependence Plot for feature: '{top_ngram_name}'")
-            shap.dependence_plot(top_ngram_index, shap_values, X_scaled,
-                                 feature_names=[str(ngram) for ngram in unique_ngrams], show=False)
-            st.pyplot()
-        else:
-            st.write("Insufficient data to perform SHAP analysis.")
 
         st.subheader("LLM-based SHAP Explanation")
         shap_values_abs = np.abs(shap_values).mean(axis=0)
