@@ -1,11 +1,10 @@
 # ProM-Ex: Anomaly Detection in Process Mining
-ProM-Ex is an advanced tool designed to detect and explain anomalies in process mining datasets, particularly timestamp anomalies in event logs. By leveraging machine learning models, SHAP analysis, and language models like Google Gemini-Pro, this project aims to provide an end-to-end solution for anomaly detection, root cause analysis, and insights generation.
+ProM-Ex is an advanced tool designed to detect and explain anomalies in process mining datasets. By leveraging machine learning models, SHAP analysis, and language models like Google Gemini-Pro, this project aims to provide an end-to-end solution for anomaly detection, root cause analysis, and insights generation.
 
 ## Features
- 1) Timestamp Anomaly Detection: Utilizes Isolation Forest to detect anomalies in event logs.
- 2) Activity n-Grams Analysis: Extracts n-gram features from activity sequences for detailed anomaly detection.
- 3) SHAP Analysis: Provides interpretability by showing feature importance and their impacts on model decisions.
- 4) LLM-based Explanation: Generates human-readable explanations for detected anomalies using Google Gemini-Pro.
+ 1) Activity n-Grams Analysis: Extracts n-gram features from activity sequences for detailed anomaly detection.
+ 2) SHAP Analysis: Provides interpretability by showing feature importance and their impacts on model decisions.
+ 3) LLM-based Explanation: Generates human-readable explanations for detected anomalies using Google Gemini-Pro.
 ## Installation
 ### Clone the repository:
 
@@ -37,7 +36,7 @@ This will launch the ProM-Ex application in your web browser.
  2) Select the appropriate columns for case IDs and activities.
 ## Analyze Anomalies:
 
-1) The tool will process the event log, detect timestamp and activity anomalies, and display them.
+1) The tool will process the event log, detect anomalies, and display them.
 2) Visualizations and SHAP-based explanations will be provided.
 ## LLM-Based Explanations:
 
